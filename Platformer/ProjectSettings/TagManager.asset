@@ -38,6 +38,8 @@ TagManager:
   - Monster
   - Kokol
   - hug
+  - pan1
+  - pan2
   layers:
   - Default
   - TransparentFX

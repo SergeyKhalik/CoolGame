@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Hero : MonoBehaviour {
@@ -42,6 +43,10 @@ public class Hero : MonoBehaviour {
     private GameObject camera;
     private GameObject visual;
     private GameObject eventsystem;
+    private GameObject pan1;
+    private GameObject pan2;
+    private Image pan;
+    public static BGpanel p;
     public static Animator anim;
     private GameObject hug;
     SpriteRenderer sp;
@@ -63,6 +68,10 @@ public class Hero : MonoBehaviour {
             Instantiate(visual);
             Instantiate(eventsystem);
         }
+        pan1 = GameObject.FindGameObjectWithTag("pan1");
+        pan2 = GameObject.FindGameObjectWithTag("pan2");
+        p = pan2.GetComponent<BGpanel>();
+        pan = GetComponent<Image>();
     }
     private void Awake()
     {
@@ -80,6 +89,7 @@ public class Hero : MonoBehaviour {
     }
     private void Update()
     {
+        //pan.color = new Color(pan.color.r, pan.color.g, pan.color.b,100-heart);
         if (!win)
         {
             if (heart <= 0)
@@ -160,6 +170,7 @@ public class Hero : MonoBehaviour {
     public static void HaveDamage(int dam)
     {
         if (!win) {
+            p.state = 1;
             if (fields <= 0)
             {
                 heart -= dam;
