@@ -10,7 +10,6 @@ public class Hero : MonoBehaviour {
     public static float speed = 230;
     public static bool win = false;
     public static int damtaken = 0;
-    public static int buluse = 0;
     [SerializeField]
     public float jumpForse = 30.0f;
     [SerializeField]
@@ -45,10 +44,10 @@ public class Hero : MonoBehaviour {
     private bool grounded;
     private void Start()
     {
+        
         Time.timeScale = 1;
         win = false;
         damtaken = 0;
-        buluse = 0;
         colorbutton = "blue";
         if (!FindObjectOfType<Camera>()) {
             GameObject clone1 = Instantiate(camera);
@@ -68,7 +67,6 @@ public class Hero : MonoBehaviour {
     }
     private void Awake()
     {
-
         set = Resources.Load("Pause") as GameObject;
         hug = Resources.Load("Hug") as GameObject;
         canvas = Resources.Load("Canvas") as GameObject;
@@ -164,7 +162,7 @@ public class Hero : MonoBehaviour {
     }
     private bool isGround()
     {
-        Collider2D[] colliders = Physics2D.OverlapCapsuleAll(new Vector2(tr.position.x,tr.position.y-0.9f),new Vector2(0.5f,0.05f), CapsuleDirection2D.Horizontal, 0);
+        Collider2D[] colliders = Physics2D.OverlapCapsuleAll(new Vector2(tr.position.x-0.0095f,tr.position.y-0.9f),new Vector2(0.42f,0.045f), CapsuleDirection2D.Horizontal, 0);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Solid")

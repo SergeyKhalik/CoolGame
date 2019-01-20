@@ -72,18 +72,9 @@ public class Finish : MonoBehaviour {
             FoundCoins.text = "Found coins: " + Hero.coins + "/" + lp.FinishCoins;
             Healthsaved.text = "Health saved: " + Hero.heart + "/" + lp.StartHP;
             Damagetaken.text = "Damage taken: " + Hero.damtaken;
-            switch(Global.difficulty)
-            {
-                case 1: Bulletsused.text = "Bullets used: " + Hero.buluse + "/" + lp.StartBullets1; break;
-                case 2: Bulletsused.text = "Bullets used: " + Hero.buluse + "/" + lp.StartBullets2; break;
-                case 3: Bulletsused.text = "Bullets used: " + Hero.buluse + "/" + lp.StartBullets3; break;
-                case 4: Bulletsused.text = "Bullets used: " + Hero.buluse + "/" + lp.StartBullets4; break;
-                case 5: Bulletsused.text = "Bullets used: " + Hero.buluse + "/" + lp.StartBullets5; break;
-                default: break;
-            }
             int myInt1 = (int)Hero.damtaken;
             int myInt2 = (int)Hero.heart;
-            score += Hero.coins * 3 + myInt2 * 5 - myInt1 * 2 + Hero.buluse * 3 + Hero.fields * 20 - (Global.respawns - LevelProporties.Srespawns)*3 + (Global.monsterskill - LevelProporties.Smonsterskills)*10 - (Global.jumps - LevelProporties.Sjumps)/10;
+            score += Hero.coins * 3 + myInt2 * 5 - myInt1 * 2 + Hero.fields * 20 - (Global.respawns - LevelProporties.Srespawns)*3 + (Global.monsterskill - LevelProporties.Smonsterskills)*10 - (Global.jumps - LevelProporties.Sjumps)/10;
             int myInt3 = (int)lp.FinishHP;
             int maxscore = LevelProporties.stcoins * 3 + myInt3 * 5 + LevelProporties.stbullets * 3 + (LevelProporties.stfields+lp.FieldsPlus) * 20 + LevelProporties.stmonsters*10 - LevelProporties.stjumps/10;
             star1.enabled = false;

@@ -311,25 +311,6 @@ public class ZombieMale : MonoBehaviour {
             {
                 Hero.HaveDamage(damage);
             }
-            else if (collision.gameObject.tag == "bullet")
-            {
-                if (collision.gameObject.name == "BulletBlue(Clone)")
-                {
-                    BulletBlue bb = collision.gameObject.GetComponent<BulletBlue>();
-                    hp -= bb.damage;
-                }
-                else if (collision.gameObject.name == "BulletGreen(Clone)")
-                {
-                    BulletGreen bb = collision.gameObject.GetComponent<BulletGreen>();
-                    hp -= bb.damage;
-                }
-                else if (collision.gameObject.name == "BulletRed(Clone)")
-                {
-                    BulletRed bb = collision.gameObject.GetComponent<BulletRed>();
-                    hp -= bb.damage;
-                }
-                GameObject.Destroy(collision.gameObject);
-            }
         }
     }
 }

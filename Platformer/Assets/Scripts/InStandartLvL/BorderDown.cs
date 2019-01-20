@@ -6,12 +6,7 @@ using UnityEngine;
 public class BorderDown : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "player" && FindObjectOfType<Builder>())
-        {
-            Global.respawns++;
-            Hero.tr.position = new Vector3(Builder.perx,Builder.pery,transform.position.z);
-        }
-        else if (collision.gameObject.tag == "player" && FindObjectOfType<LevelProporties>())
+        if (collision.gameObject.tag == "player" && FindObjectOfType<LevelProporties>())
         {
             Global.respawns++;
             LevelProporties tl = FindObjectOfType<LevelProporties>();

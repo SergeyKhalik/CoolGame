@@ -9,10 +9,10 @@ public class BGpanel : MonoBehaviour {
     Animator an;
     private void Awake()
     {
-       // an.GetComponent<Animator>();
+       //an.GetComponent<Animator>();
     }
     private void Update()
     {
-        an.SetInteger("State", state);
+        //.SetInteger("State", state);
     }
 }
