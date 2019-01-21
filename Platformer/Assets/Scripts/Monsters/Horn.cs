@@ -87,12 +87,12 @@ public class Horn : MonoBehaviour {
             if (fi == "Right" && timem < 0)
             {
                 transform.position += Vector3.right * speed;
-                sp.flipX = true;
+                sp.flipX = false;
             }
             else if (timem < 0)
             {
                 transform.position += Vector3.left * speed;
-                sp.flipX = false;
+                sp.flipX = true;
             }
             if (fi == "Right")
             {
