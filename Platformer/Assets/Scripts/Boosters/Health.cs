@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     Animator an;
     private void Awake()
     {
-        an = GetComponent<Animator>();
+        /*an = GetComponent<Animator>();
         switch (rez)
         {
             case "Gold":
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
             default:
                 an.SetInteger("State", 0);
                 break;
-        }
+        }*/
     }
     private void Update()
     {
@@ -50,19 +50,6 @@ public class Health : MonoBehaviour
             else
             {
                 Hero.heart += healthup;
-            }
-            GameObject.Destroy(this.gameObject);
-        }
-        else if (collision.gameObject.tag == "bullet")
-        {
-            Global.hpplus++;
-            if (Hero.heart + healthup/2 >= 100)
-            {
-                Hero.heart = 100;
-            }
-            else
-            {
-                Hero.heart += healthup/2;
             }
             GameObject.Destroy(this.gameObject);
         }

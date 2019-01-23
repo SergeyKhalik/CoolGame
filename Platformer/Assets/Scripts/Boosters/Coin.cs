@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour {
     Animator an;
     private void Awake()
     {
-        an = GetComponent<Animator>();
+        /*an = GetComponent<Animator>();
         switch (rez)
         {
             case "Gold":
@@ -28,7 +28,7 @@ public class Coin : MonoBehaviour {
             default:
                 an.SetInteger("State", 0);
                 break;
-        }
+        }*/
     }
     private void Update()
     {
