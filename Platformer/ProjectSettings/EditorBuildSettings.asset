@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Ch1_lvl1.unity
+    guid: d7fa9d7ae97b74a4288bab24dc963c8a
+  - enabled: 0
     path: Assets/Scenes/Polygon.unity
     guid: 4e4ef15cbcf19e54186c104a1a6216ff
   - enabled: 0

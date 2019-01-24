@@ -3,199 +3,123 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Horn : MonoBehaviour {
+public class Horn : MonoBehaviour
+{
     [SerializeField]
     private bool Easter_lvl;
     private SpriteRenderer sp;
-    [SerializeField]
     private string fi = "Right";
     [SerializeField]
     private float speed = 0.04f;
-    private float hi = 0;
-    [SerializeField]
     private int damage = 20;
-    public float timestan = 5;
-    public float timem = 0;
-    Animator an;
+    [SerializeField]
+    private float yst1;
+    [SerializeField]
+    private float yst2;
+    [SerializeField]
+    private float x1;
+    [SerializeField]
+    private float x2;
+    private double a = 0;
+    private float b;
+    private double c = 1;
+    private float A;
+    [SerializeField]
+    private float V1;
+    [SerializeField]
+    private float V2;
+    private float Ast;
+    double w, q;
+    System.Random rand = new System.Random();
+    //Animator an;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "player" && timem < 0)
+        if (collision.gameObject.tag == "player")
         {
             Hero.HaveDamage(damage);
-        }
-        else if (collision.gameObject.tag == "bullet" && timem < 0)
-        {
-            Destroy(collision.gameObject);
-            timem = timestan;
         }
     }
     private void Start()
     {
-        hi = UnityEngine.Random.Range(0, 360);
         switch (Global.difficulty)
         {
             case 1:
                 speed = 0.04f;
                 damage = 10;
-                timestan = 6;
                 break;
             case 2:
                 speed = 0.045f;
                 damage = 15;
-                timestan = 4.5f;
                 break;
             case 3:
                 speed = 0.05f;
                 damage = 20;
-                timestan = 4;
                 break;
             case 4:
                 speed = 0.055f;
                 damage = 25;
-                timestan = 3;
                 break;
             case 5:
                 speed = 0.06f;
                 damage = 30;
-                timestan = 2;
                 break;
         }
         if (Easter_lvl)
-            damage = 100;
+        { damage = 100; }
+        A = Math.Abs(yst1 - yst2) / 2;
+        Ast = A;
+        b = (yst1 + yst2) / 2;
     }
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
-        an = GetComponent<Animator>();
+        //an = GetComponent<Animator>();
     }
-    void Update() {
-        if (Time.timeScale != 0) {
-            if (timem > -10)
-            {
-                timem -= Time.deltaTime;
-            }
-            if (timem < 0)
-            {
-                an.SetInteger("State", 0);
-                hi += 0.0255f;
-                transform.position = new Vector3(transform.position.x, transform.position.y + (float)Math.Sin(hi * Math.PI * 1.5) / -100, transform.position.z);
-            }
-            else
-            {
-                an.SetInteger("State", 1);
-            }
-            if (fi == "Right" && timem < 0)
+    void Update()
+    {
+        if (Time.timeScale != 0)
+        {
+            transform.position = new Vector3(transform.position.x, A * (float)Math.Sin(c * transform.position.x - a) + b, transform.position.z);
+            if (fi == "Right")
             {
                 transform.position += Vector3.right * speed;
                 sp.flipX = false;
             }
-            else if (timem < 0)
+            else
             {
                 transform.position += Vector3.left * speed;
                 sp.flipX = true;
             }
             if (fi == "Right")
             {
-                if (Rightup() == true || Rightdown() == false)
+                if (transform.position.x >= x2)
                 {
+                    c = rand.Next(5000, 20001) / 10000;
+                    while (transform.position.y > b + A || transform.position.y < b - A)
+                    {
+                        w = (Ast - V1) * 1000000000;
+                        q = (Ast - V2) * 1000000000;
+                        A = rand.Next(Convert.ToInt32(w), Convert.ToInt32(q) + 1);
+                    }
+                    a = c * transform.position.x - Math.Asin((transform.position.y - b) / A);
                     fi = "Left";
                 }
             }
             else
             {
-                if (Leftup() == true || Leftdown() == false)
+                if (transform.position.x <= x1)
                 {
+                    c = rand.Next(5000, 20001) / 10000;
+                    while (transform.position.y > b + A || transform.position.y < b - A)
+                    {
+                        w = (Ast - V1) * 1000000000;
+                        q = (Ast - V2) * 1000000000;
+                        A = rand.Next(Convert.ToInt32(w), Convert.ToInt32(q) + 1);
+                    }
+                    a = c * transform.position.x - Math.Asin((transform.position.y - b) / A);
                     fi = "Right";
                 }
             }
-        }
-    }
-    private bool Rightup()
-    {
-        int j = 0;
-        Vector2 kol = transform.position; kol.x += 0.5f;
-        Vector2 dol; dol.x = 0.7f; dol.y = 0.2f;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(kol, 0.2f);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject.tag == "Solid")
-            {
-                j++;
-            }
-        }
-        if (j > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    private bool Leftup()
-    {
-        int j = 0;
-        Vector2 kol = transform.position; kol.x -= 0.5f;
-        Vector2 dol; dol.x = 0.7f; dol.y = 0.2f;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(kol, 0.2f);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject.tag == "Solid")
-            {
-                j++;
-            }
-        }
-        if (j > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    private bool Leftdown()
-    {
-        int j = 0;
-        Vector2 kol = transform.position; kol.x -= 0.5f; kol.y -= 1.5f;
-        Vector2 dol; dol.x = 0.7f; dol.y = 0.2f;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(kol, 0.2f);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject.tag == "Solid")
-            {
-                j++;
-            }
-        }
-        if (j > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    private bool Rightdown()
-    {
-        int j = 0;
-        Vector2 kol = transform.position; kol.x += 0.5f; kol.y -= 1.5f;
-        Vector2 dol; dol.x = 0.7f; dol.y = 0.2f;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(kol, 0.2f);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject.tag == "Solid")
-            {
-                j++;
-            }
-        }
-        if (j > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 }
