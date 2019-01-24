@@ -49,12 +49,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Backdround
+  - Solid
+  - Moneys
+  - Anything
+  - Monsters
+  - Hero
   - 
   - 
   - 
@@ -76,4 +76,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Backdround
+    uniqueID: 3399745369
+    locked: 0
+  - name: Solid
+    uniqueID: 709140609
+    locked: 0
+  - name: Moneys
+    uniqueID: 2280037653
+    locked: 0
+  - name: Anything
+    uniqueID: 3910309949
+    locked: 0
+  - name: Monsters
+    uniqueID: 3189512879
+    locked: 0
+  - name: Hero
+    uniqueID: 3883457181
     locked: 0

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4337431070729056}
   - component: {fileID: 212730756563098420}
   - component: {fileID: 60208623437259014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RampBottomLeft
   m_TagString: Solid
   m_Icon: {fileID: 0}
