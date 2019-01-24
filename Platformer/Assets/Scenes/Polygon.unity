@@ -1356,7 +1356,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4707153745817818, guid: 4838cf487c01ed44a987052b854e553a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4707153745817818, guid: 4838cf487c01ed44a987052b854e553a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1529,6 +1529,36 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae76cb47ad73fb846a0eb93aa8fd2be2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &507190065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1972963734530828, guid: 270c218b4542d114bbdc2fb1735d0528,
+    type: 2}
+  m_PrefabInternal: {fileID: 1565290686}
+--- !u!61 &507190070
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507190065}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0095, y: -0.92}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.431, y: 0.08}
+  m_EdgeRadius: 0.01
 --- !u!4 &523079377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4946385919138386, guid: f459a25eadf7fd84f8cf70548bac1ace,
@@ -4006,11 +4036,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4642504417964328, guid: 270c218b4542d114bbdc2fb1735d0528, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.009435177
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4642504417964328, guid: 270c218b4542d114bbdc2fb1735d0528, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.1496094
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4642504417964328, guid: 270c218b4542d114bbdc2fb1735d0528, type: 2}
       propertyPath: m_LocalPosition.z

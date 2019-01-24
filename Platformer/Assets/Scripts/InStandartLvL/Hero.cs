@@ -41,6 +41,7 @@ public class Hero : MonoBehaviour {
     public static Animator anim;
     private GameObject hug;
     SpriteRenderer sp;
+    BoxCollider2D bc;
     private bool grounded;
     private void Start()
     {
@@ -67,6 +68,7 @@ public class Hero : MonoBehaviour {
     }
     private void Awake()
     {
+        bc = GetComponent<BoxCollider2D>();
         set = Resources.Load("Pause") as GameObject;
         hug = Resources.Load("Hug") as GameObject;
         canvas = Resources.Load("Canvas") as GameObject;
@@ -85,6 +87,16 @@ public class Hero : MonoBehaviour {
         anim.SetBool("IsGrounded", grounded); 
         anim.SetFloat("Veloncity", rb.velocity.y);
         anim.SetBool("Shift", Input.GetKey(KeyCode.LeftShift));
+        if (grounded && rb.velocity.y >= 0.1)
+        {
+            bc.offset.Set(-0.00943f, -0.2993f);
+            bc.size.Set(0.3287f, 0.9996f);
+        }
+        else
+        {
+            bc.offset.Set((float)-0.009435f, (float)-0.1496f);
+            bc.size.Set((float)0.32878f, (float)1.2992f);
+        }
         if (!win)
         {
             if (heart <= 0)
@@ -162,7 +174,7 @@ public class Hero : MonoBehaviour {
     }
     private bool isGround()
     {
-        Collider2D[] colliders = Physics2D.OverlapCapsuleAll(new Vector2(tr.position.x-0.0095f,tr.position.y-0.9f),new Vector2(0.42f,0.045f), CapsuleDirection2D.Horizontal, 0);
+        Collider2D[] colliders = Physics2D.OverlapCapsuleAll(new Vector2(tr.position.x-0.0095f,tr.position.y-0.92f),new Vector2(0.431f,0.08f), CapsuleDirection2D.Horizontal, 0.01f);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Solid")
