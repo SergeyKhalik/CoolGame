@@ -43,9 +43,12 @@ public class Hero : MonoBehaviour {
     SpriteRenderer sp;
     BoxCollider2D bc;
     private bool grounded;
+    [SerializeField]
+    private bool speedMode = false;
+    private float timer = 0;
+    private bool shift = false;
     private void Start()
     {
-        
         Time.timeScale = 1;
         win = false;
         damtaken = 0;
@@ -82,11 +85,16 @@ public class Hero : MonoBehaviour {
     }
     private void Update()
     {
+        timer -= Time.deltaTime;
         grounded = isGround();
+        if (!speedMode)shift = Input.GetKey(KeyCode.LeftShift);
+        if (Input.GetKeyDown(KeyCode.Tab) && timer < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded) { speedMode = !speedMode; timer = 0.52f; win = true; shift = true; }
+        if (timer < 0) win = false;
         anim.SetFloat("Horizontal", Math.Abs(Input.GetAxis("Horizontal"))); 
-        anim.SetBool("IsGrounded", grounded); 
+        anim.SetBool("IsGrounded", grounded);
+        anim.SetBool("speedMode", speedMode);
         anim.SetFloat("Veloncity", rb.velocity.y);
-        anim.SetBool("Shift", Input.GetKey(KeyCode.LeftShift));
+        anim.SetBool("Shift", shift);
         if (grounded && rb.velocity.y >= 0.1)
         {
             bc.offset.Set(-0.00943f, -0.2993f);
@@ -98,7 +106,7 @@ public class Hero : MonoBehaviour {
             bc.size.Set((float)0.32878f, (float)1.2992f);
         }
         if (!win)
-        {
+        { 
             if (heart <= 0)
             {
                 Global.deads++;
@@ -165,7 +173,7 @@ public class Hero : MonoBehaviour {
     {
         if (!win)
         {
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed +  (Input.GetKey(KeyCode.LeftShift) ? 70 : 0) ) * Time.deltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed +  (shift ? 70 : 0) ) * Time.deltaTime, rb.velocity.y);
         }
     }
     void Jump()
@@ -174,7 +182,7 @@ public class Hero : MonoBehaviour {
     }
     private bool isGround()
     {
-        Collider2D[] colliders = Physics2D.OverlapCapsuleAll(new Vector2(tr.position.x-0.0095f,tr.position.y-0.92f),new Vector2(0.431f,0.08f), CapsuleDirection2D.Horizontal, 0.01f);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(tr.position.x-0.0095f,tr.position.y-0.92f),new Vector2(0.431f,0.08f), 0.01f);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Solid")
