@@ -9,8 +9,10 @@ public class Spiky_orange : MonoBehaviour
     [SerializeField]
     private bool Easter_lvl;
     private int damage;
+    private Hero hero;
     private void Awake()
     {
+        hero = GameObject.FindObjectOfType<Hero>();
         if (Easter_lvl)
             damage = 100;
         else
@@ -37,8 +39,8 @@ public class Spiky_orange : MonoBehaviour
     {
         if(collision.gameObject.tag == "player")
         {
-            Hero.HaveDamage(damage);
-            Hero.HaveImpulse(imp);
+            hero.HaveDamage(damage);
+            hero.HaveImpulse(imp);
         }
     }
 }

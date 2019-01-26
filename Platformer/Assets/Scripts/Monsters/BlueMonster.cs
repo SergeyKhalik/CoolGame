@@ -14,6 +14,7 @@ public class BlueMonster : MonoBehaviour {
     private float JumpImpulsel = 30;
     [SerializeField]
     private float JumpImpulser = 40;
+    private Hero hero;
     private void Start()
     {
         switch (Global.difficulty)
@@ -37,6 +38,7 @@ public class BlueMonster : MonoBehaviour {
     }
     private void Awake()
     {
+        hero = GameObject.FindObjectOfType<Hero>();
         an = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sp = GetComponent<SpriteRenderer>();
@@ -96,8 +98,8 @@ public class BlueMonster : MonoBehaviour {
         }
         if (collision.gameObject.tag == "player")
         {
-            Hero.HaveDamage(damage);
-            Hero.HaveImpulse(100);
+            hero.HaveDamage(damage);
+            hero.HaveImpulse(100);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)

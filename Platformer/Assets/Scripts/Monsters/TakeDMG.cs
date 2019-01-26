@@ -9,8 +9,10 @@ public class TakeDMG : MonoBehaviour {
     Animator an;
     [SerializeField]
     GameObject des;
+    private Hero hero;
     private void Awake()
     {
+        hero = GameObject.FindObjectOfType<Hero>();
         an = GetComponent<Animator>();
     }
     private void Start()
@@ -41,7 +43,7 @@ public class TakeDMG : MonoBehaviour {
     {
         if (take)
         {
-            Hero.HaveDamage(damage);
+            hero.HaveDamage(damage);
             take = false;
         }
         if (fall)

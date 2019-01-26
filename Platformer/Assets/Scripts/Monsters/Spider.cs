@@ -14,6 +14,7 @@ public class Spider : MonoBehaviour {
     private float n = 8;
     private float m = 15;
     Rigidbody2D rb;
+    private Hero hero;
     private void Start()
     {
         difficult = Global.difficulty;
@@ -48,6 +49,7 @@ public class Spider : MonoBehaviour {
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        hero = GameObject.FindObjectOfType<Hero>();
     }
     private void Update()
     {
@@ -61,6 +63,6 @@ public class Spider : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "player")
-                Hero.HaveDamage(damage);
+                hero.HaveDamage(damage);
     }
 }

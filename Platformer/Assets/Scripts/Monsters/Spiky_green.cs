@@ -22,9 +22,11 @@ public class Spiky_green : MonoBehaviour
     private float time = 5;
     [SerializeField]
     private float time1 = 5;
+    private Hero hero;
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
+        hero = GameObject.FindObjectOfType<Hero>();
     }
     private void Update()
     {
@@ -82,8 +84,8 @@ public class Spiky_green : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            Hero.HaveDamage(damage);
-            Hero.HaveImpulse(100);
+            hero.HaveDamage(damage);
+            hero.HaveImpulse(100);
         }
     }
 }

@@ -25,11 +25,11 @@ public class ZombieMale : MonoBehaviour {
     private bool dead = false;
     private void Awake()
     {
+        hero = GameObject.FindObjectOfType<Hero>();
         cl = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         sp = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
-        hero = FindObjectOfType<Hero>();
     }
     private void Start()
     {
@@ -309,7 +309,7 @@ public class ZombieMale : MonoBehaviour {
         if (!dead) {
             if (collision.gameObject.tag == "player")
             {
-                Hero.HaveDamage(damage);
+                hero.HaveDamage(damage);
             }
         }
     }

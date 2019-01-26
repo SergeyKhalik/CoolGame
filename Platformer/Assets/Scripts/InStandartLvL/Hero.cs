@@ -9,6 +9,7 @@ public class Hero : MonoBehaviour {
     public static float heart = 100f;
     public static float speed = 230;
     public static bool win = false;
+    public static bool won = false;
     public static int damtaken = 0;
     [SerializeField]
     public float jumpForse = 30.0f;
@@ -31,10 +32,10 @@ public class Hero : MonoBehaviour {
     public static Transform tr;
     private GameObject set;
     private GameObject canvas;
-    private GameObject camera;
+    private GameObject cameran;
     private GameObject visual;
     private GameObject eventsystem;
-    private GameObject pan1;
+    //private GameObject pan1;
     private GameObject pan2;
     private Image pan;
     public static BGpanel p;
@@ -45,8 +46,14 @@ public class Hero : MonoBehaviour {
     private bool grounded;
     [SerializeField]
     private bool speedMode = false;
-    private float timer = 0;
+    private float timersM = 0;
+    private float timerdam = 0;
     private bool shift = false;
+    private bool fight = false;
+    private int fightcounter = 0;
+    private bool damaget = false;
+    [SerializeField]
+    private float DamImulse = 10;
     private void Start()
     {
         Time.timeScale = 1;
@@ -54,7 +61,7 @@ public class Hero : MonoBehaviour {
         damtaken = 0;
         colorbutton = "blue";
         if (!FindObjectOfType<Camera>()) {
-            GameObject clone1 = Instantiate(camera);
+            GameObject clone1 = Instantiate(cameran);
             CameraController cc = clone1.GetComponent<CameraController>();
             cc.target = this.transform;
             GameObject clone2 = Instantiate(canvas);
@@ -64,7 +71,7 @@ public class Hero : MonoBehaviour {
             Instantiate(visual);
             Instantiate(eventsystem);
         }
-        pan1 = GameObject.FindGameObjectWithTag("pan1");
+        //pan1 = GameObject.FindGameObjectWithTag("pan1");
         pan2 = GameObject.FindGameObjectWithTag("pan2");
         p = pan2.GetComponent<BGpanel>();
         pan = GetComponent<Image>();
@@ -75,7 +82,7 @@ public class Hero : MonoBehaviour {
         set = Resources.Load("Pause") as GameObject;
         hug = Resources.Load("Hug") as GameObject;
         canvas = Resources.Load("Canvas") as GameObject;
-        camera = Resources.Load("Main Camera") as GameObject;
+        cameran = Resources.Load("Main Camera") as GameObject;
         visual = Resources.Load("Visual") as GameObject;
         eventsystem = Resources.Load("EventSystem") as GameObject;
         tr = GetComponent<Transform>();
@@ -85,14 +92,17 @@ public class Hero : MonoBehaviour {
     }
     private void Update()
     {
-        timer -= Time.deltaTime;
+        timersM -= Time.deltaTime;
+        timerdam -= Time.deltaTime;
         grounded = isGround();
+        if (timerdam < 0) { damaget = false; win = false; }
         if (!speedMode)shift = Input.GetKey(KeyCode.LeftShift);
-        if (Input.GetKeyDown(KeyCode.Tab) && timer < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded) { speedMode = !speedMode; timer = 0.52f; win = true; shift = true; }
-        if (timer < 0) win = false;
+        if (Input.GetKeyDown(KeyCode.Tab) && timersM < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded && !damaget) { speedMode = !speedMode; timersM = 0.52f; win = true; shift = true; }
+        if (timersM < 0 && !damaget) win = false;
         anim.SetFloat("Horizontal", Math.Abs(Input.GetAxis("Horizontal"))); 
         anim.SetBool("IsGrounded", grounded);
         anim.SetBool("speedMode", speedMode);
+        anim.SetBool("Damaget", damaget);
         anim.SetFloat("Veloncity", rb.velocity.y);
         anim.SetBool("Shift", shift);
         if (grounded && rb.velocity.y >= 0.1)
@@ -105,7 +115,7 @@ public class Hero : MonoBehaviour {
             bc.offset.Set((float)-0.009435f, (float)-0.1496f);
             bc.size.Set((float)0.32878f, (float)1.2992f);
         }
-        if (!win)
+        if (!win && !won)
         { 
             if (heart <= 0)
             {
@@ -154,10 +164,10 @@ public class Hero : MonoBehaviour {
             }  
         }
     }
-    public static void HaveDamage(int dam)
+    public void HaveDamage(int dam)
     {
-        if (!win) {
-            p.state = 1;
+        if (!won)
+        { 
             if (fields <= 0)
             {
                 heart -= dam;
@@ -167,11 +177,15 @@ public class Hero : MonoBehaviour {
             {
                 fields--;
             }
+            damaget = true;
+            timerdam = 1f;
+            win = true;
+            HaveImpulse(DamImulse);
         }
     }
     void FixedUpdate()
     {
-        if (!win)
+        if (!win && !won)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed +  (shift ? 70 : 0) ) * Time.deltaTime, rb.velocity.y);
         }
@@ -192,8 +206,8 @@ public class Hero : MonoBehaviour {
         }
         return false;
     }
-    public static void HaveImpulse(float n)
+    public void HaveImpulse(float n)
     {
-        rb.AddForce(Vector2.up * n, ForceMode2D.Impulse);
+        rb.AddForce( new Vector2(sp.flipX == true ? 1 : -1,1) * n, ForceMode2D.Impulse);
     }
 }

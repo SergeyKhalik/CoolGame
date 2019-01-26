@@ -7,8 +7,8 @@ public class Coin : MonoBehaviour {
 
     [SerializeField]
     private int cost = 5;
-    [SerializeField]
-    private string rez = "Gold";
+    //[SerializeField]
+    //private string rez = "Gold";
     private float time = 0.016f;
     Animator an;
     private void Awake()

@@ -31,12 +31,13 @@ public class Horn : MonoBehaviour
     private float Ast;
     double w, q;
     System.Random rand = new System.Random();
+    private Hero hero;
     //Animator an;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "player")
         {
-            Hero.HaveDamage(damage);
+            hero.HaveDamage(damage);
         }
     }
     private void Start()
@@ -72,6 +73,7 @@ public class Horn : MonoBehaviour
     }
     private void Awake()
     {
+        hero = GameObject.FindObjectOfType<Hero>();
         sp = GetComponent<SpriteRenderer>();
         //an = GetComponent<Animator>();
     }

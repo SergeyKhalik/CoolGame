@@ -15,8 +15,10 @@ public class Slime : MonoBehaviour {
     bool hd = false;
     float time = 0.5f;
     float timet = 0;
+    private Hero hero;
     private void Awake()
     {
+        hero = GameObject.FindObjectOfType<Hero>();
         sp = GetComponent<SpriteRenderer>();
         an = GetComponent<Animator>();
     }
@@ -41,7 +43,7 @@ public class Slime : MonoBehaviour {
         if (fight && timet <= 0.17 && !hd)
         {
             hd = true;
-            Hero.HaveDamage(Damage);
+            hero.HaveDamage(Damage);
         }
         if (timet <= 0)
         {

@@ -34,8 +34,8 @@ public class Finish : MonoBehaviour {
     Text Damagetaken;
     [SerializeField]
     GameObject bu;
-    [SerializeField]
-    Text Bulletsused;
+    //[SerializeField]
+    //Text Bulletsused;
     [SerializeField]
     GameObject gs;
     [SerializeField]
@@ -66,7 +66,7 @@ public class Finish : MonoBehaviour {
             dt = GameObject.FindGameObjectWithTag("Damagetaken");
             Damagetaken = dt.GetComponent<Text>();
             bu = GameObject.FindGameObjectWithTag("Bulletsused");
-            Bulletsused = bu.GetComponent<Text>();
+            //Bulletsused = bu.GetComponent<Text>();
             gs = GameObject.FindGameObjectWithTag("Globalscore");
             Globalscore = gs.GetComponent<Text>();
             FoundCoins.text = "Found coins: " + Hero.coins + "/" + lp.FinishCoins;

@@ -9,7 +9,7 @@ public class BorderDown : MonoBehaviour {
         if (collision.gameObject.tag == "player" && FindObjectOfType<LevelProporties>())
         {
             Global.respawns++;
-            LevelProporties tl = FindObjectOfType<LevelProporties>();
+            //LevelProporties tl = FindObjectOfType<LevelProporties>();
             ControlPoz[] cp = FindObjectsOfType<ControlPoz>();
             int max = 0;
             for (int i = 0; i < cp.Length; i++)

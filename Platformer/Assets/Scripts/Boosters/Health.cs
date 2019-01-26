@@ -7,8 +7,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private float healthup = 25;
-    [SerializeField]
-    private string rez = "Gold";
+    //[SerializeField]
+    //private string rez = "Gold";
     private float time = 0.016f;
     Animator an;
     private void Awake()
