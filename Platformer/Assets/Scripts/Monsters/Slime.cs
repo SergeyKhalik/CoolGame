@@ -6,7 +6,7 @@ public class Slime : MonoBehaviour {
     [SerializeField]
     private float speed = 0.03f;
     [SerializeField]
-    private int Damage = 10;
+    private int damage = 10;
     bool fight = false;
     SpriteRenderer sp;
     Transform tr;
@@ -43,7 +43,7 @@ public class Slime : MonoBehaviour {
         if (fight && timet <= 0.17 && !hd)
         {
             hd = true;
-            hero.HaveDamage(Damage);
+            hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1, 1) : new Vector2(1, 1)));
         }
         if (timet <= 0)
         {

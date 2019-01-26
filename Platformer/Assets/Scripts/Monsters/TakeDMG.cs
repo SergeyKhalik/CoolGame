@@ -43,7 +43,7 @@ public class TakeDMG : MonoBehaviour {
     {
         if (take)
         {
-            hero.HaveDamage(damage);
+            hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1, 1) : new Vector2(1, 1)));
             take = false;
         }
         if (fall)

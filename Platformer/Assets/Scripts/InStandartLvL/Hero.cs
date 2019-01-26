@@ -53,9 +53,12 @@ public class Hero : MonoBehaviour {
     private int fightcounter = 0;
     private bool damaget = false;
     [SerializeField]
+    private float delay = 0.7f;
+    [SerializeField]
     private float DamImulse = 10;
     private void Start()
     {
+        
         Time.timeScale = 1;
         win = false;
         damtaken = 0;
@@ -95,7 +98,7 @@ public class Hero : MonoBehaviour {
         timersM -= Time.deltaTime;
         timerdam -= Time.deltaTime;
         grounded = isGround();
-        if (timerdam < 0) { damaget = false; win = false; }
+        if (timerdam < 0) { damaget = false; win = false; } else { sp.color = new Color(255, sp.color.b + (255*Time.deltaTime)/ delay, sp.color.b + (255 * Time.deltaTime) / delay); }
         if (!speedMode)shift = Input.GetKey(KeyCode.LeftShift);
         if (Input.GetKeyDown(KeyCode.Tab) && timersM < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded && !damaget) { speedMode = !speedMode; timersM = 0.52f; win = true; shift = true; }
         if (timersM < 0 && !damaget) win = false;
@@ -164,7 +167,7 @@ public class Hero : MonoBehaviour {
             }  
         }
     }
-    public void HaveDamage(int dam)
+    public void HaveDamage(int dam, Vector2 dir)
     {
         if (!won)
         { 
@@ -177,10 +180,14 @@ public class Hero : MonoBehaviour {
             {
                 fields--;
             }
+            Debug.Log(sp.color);
+            sp.color = new Color(255, 0, 0);
+            Debug.Log(sp.color);
             damaget = true;
-            timerdam = 1f;
+            timerdam = delay;
+            sp.color = new Color(255,0,0);
             win = true;
-            HaveImpulse(DamImulse);
+            HaveImpulse(DamImulse, dir);
         }
     }
     void FixedUpdate()
@@ -206,8 +213,8 @@ public class Hero : MonoBehaviour {
         }
         return false;
     }
-    public void HaveImpulse(float n)
+    public void HaveImpulse(float n, Vector2 dir)
     {
-        rb.AddForce( new Vector2(sp.flipX == true ? 1 : -1,1) * n, ForceMode2D.Impulse);
+        rb.AddForce( dir * n, ForceMode2D.Impulse);
     }
 }

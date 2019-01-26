@@ -2484,7 +2484,7 @@ Prefab:
     - target: {fileID: 114467770070716690, guid: c69420a366ae70149b95854eeee826fc,
         type: 2}
       propertyPath: speed
-      value: 0.05
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c69420a366ae70149b95854eeee826fc, type: 2}
@@ -3334,7 +3334,22 @@ Prefab:
     - target: {fileID: 114196575970883802, guid: f935037531226794b873c1bb36a907c4,
         type: 2}
       propertyPath: DamImulse
-      value: 40
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 212101748621382078, guid: f935037531226794b873c1bb36a907c4,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212101748621382078, guid: f935037531226794b873c1bb36a907c4,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212101748621382078, guid: f935037531226794b873c1bb36a907c4,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f935037531226794b873c1bb36a907c4, type: 2}

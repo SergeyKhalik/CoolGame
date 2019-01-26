@@ -12,12 +12,7 @@ public class Sun : MonoBehaviour {
     {
         if (collision.gameObject.tag == "player")
         {
-            hero.HaveDamage(100);
-            hero.HaveDamage(100);
-            hero.HaveDamage(100);
-            hero.HaveDamage(100);
-            hero.HaveDamage(100);
-            hero.HaveDamage(100);
+            hero.HaveDamage(500, (transform.position.x > hero.transform.position.x ? new Vector2(-1, 1) : new Vector2(1, 1)));
         }
     }
 }

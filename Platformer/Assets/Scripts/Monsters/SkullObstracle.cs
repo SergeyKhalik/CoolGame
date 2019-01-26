@@ -14,7 +14,7 @@ public class SkullObstracle : MonoBehaviour {
     {
         if (collision.gameObject.tag == "player")
         {
-            hero.HaveDamage(damage);
+            hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1, 1) : new Vector2(1, 1)));
         }
     }
 }
