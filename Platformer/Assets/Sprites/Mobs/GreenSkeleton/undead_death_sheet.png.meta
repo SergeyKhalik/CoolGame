@@ -122,18 +122,18 @@ TextureImporter:
       name: undead_death_sheet_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 966995a0cda7ce94da359c21c343aa21
+      spriteID: 92129dc76891b634fbfea87d140fcfe1
       vertices: []
       indices: 
       edges: []
@@ -142,18 +142,18 @@ TextureImporter:
       name: undead_death_sheet_1
       rect:
         serializedVersion: 2
-        x: 79
+        x: 72
         y: 0
-        width: 26
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c8a9f0e2c6d0ae46ac7e0f07adfd4d5
+      spriteID: c66ffa1b3737d3f4cbf520b21abcbbe9
       vertices: []
       indices: 
       edges: []
@@ -162,18 +162,18 @@ TextureImporter:
       name: undead_death_sheet_2
       rect:
         serializedVersion: 2
-        x: 152
+        x: 144
         y: 0
-        width: 20
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e5d7f91b34886846a490bd0f495053c
+      spriteID: 38db42faba76a1e4fa29d6da48b9fc5c
       vertices: []
       indices: 
       edges: []
@@ -182,18 +182,18 @@ TextureImporter:
       name: undead_death_sheet_3
       rect:
         serializedVersion: 2
-        x: 224
+        x: 216
         y: 0
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dcb64abd98fef641a7c7b664071df05
+      spriteID: aacf686d09018aa4db53d2caba06165a
       vertices: []
       indices: 
       edges: []
@@ -202,18 +202,18 @@ TextureImporter:
       name: undead_death_sheet_4
       rect:
         serializedVersion: 2
-        x: 297
+        x: 288
         y: 0
-        width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cbe67ee5c82b274f9a6d4363f40e80d
+      spriteID: 82801b74a79483f42b2b998c074193be
       vertices: []
       indices: 
       edges: []
@@ -222,18 +222,18 @@ TextureImporter:
       name: undead_death_sheet_5
       rect:
         serializedVersion: 2
-        x: 369
+        x: 360
         y: 0
-        width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1546417b2688e774b9d1572f999f1d05
+      spriteID: baee8ff3e47d73c44bf499d7e7f7619c
       vertices: []
       indices: 
       edges: []
@@ -242,18 +242,18 @@ TextureImporter:
       name: undead_death_sheet_6
       rect:
         serializedVersion: 2
-        x: 440
+        x: 432
         y: 0
-        width: 26
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb6f64987cd2c924d8f7fbd4f686fa24
+      spriteID: b8230eef01834bd4c819c24b6a12418d
       vertices: []
       indices: 
       edges: []
@@ -262,18 +262,18 @@ TextureImporter:
       name: undead_death_sheet_7
       rect:
         serializedVersion: 2
-        x: 513
+        x: 504
         y: 0
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64798fb8b3f1daa438ae42ad80cc6a24
+      spriteID: cc67ec39145ec144e85ba6660051bd5c
       vertices: []
       indices: 
       edges: []
@@ -282,18 +282,18 @@ TextureImporter:
       name: undead_death_sheet_8
       rect:
         serializedVersion: 2
-        x: 585
+        x: 576
         y: 0
-        width: 33
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcb2901845f3dea42bdbf26eedf3d5a5
+      spriteID: 6eedcb219fcee3b4ba775f48661a4a41
       vertices: []
       indices: 
       edges: []
@@ -302,18 +302,18 @@ TextureImporter:
       name: undead_death_sheet_9
       rect:
         serializedVersion: 2
-        x: 657
+        x: 648
         y: 0
-        width: 40
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cca892d95e1b3f249bc58442a5ef4cd2
+      spriteID: 9636725fcfdc0354e9cc58a06f8a441d
       vertices: []
       indices: 
       edges: []
@@ -322,18 +322,18 @@ TextureImporter:
       name: undead_death_sheet_10
       rect:
         serializedVersion: 2
-        x: 729
+        x: 720
         y: 0
-        width: 42
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ef3c6ac7d6e8434498c5f472ba6d43a
+      spriteID: d10d57316253aff43aed3dddd85e1cc9
       vertices: []
       indices: 
       edges: []
@@ -342,18 +342,18 @@ TextureImporter:
       name: undead_death_sheet_11
       rect:
         serializedVersion: 2
-        x: 801
+        x: 792
         y: 0
-        width: 42
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fff1b0db796f2c488e003add8c6f371
+      spriteID: 112f270986469ef4b8fe1863447815b7
       vertices: []
       indices: 
       edges: []
@@ -362,18 +362,18 @@ TextureImporter:
       name: undead_death_sheet_12
       rect:
         serializedVersion: 2
-        x: 873
+        x: 864
         y: 0
-        width: 42
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 72
+        height: 32
+      alignment: 9
+      pivot: {x: 0.334, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 484f163be77b8fe4e8f41371355a9a46
+      spriteID: 4ce22a1139a420c4d9d1d3dca0bc258f
       vertices: []
       indices: 
       edges: []

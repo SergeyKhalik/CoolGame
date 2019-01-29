@@ -35,10 +35,6 @@ public class Hero : MonoBehaviour {
     private GameObject cameran;
     private GameObject visual;
     private GameObject eventsystem;
-    //private GameObject pan1;
-    private GameObject pan2;
-    private Image pan;
-    public static BGpanel p;
     public static Animator anim;
     private GameObject hug;
     SpriteRenderer sp;
@@ -56,6 +52,14 @@ public class Hero : MonoBehaviour {
     private float delay = 0.7f;
     [SerializeField]
     private float DamImulse = 10;
+    [SerializeField]
+    private int attacks = 0;
+    [SerializeField]
+    private bool Attack = false;
+    [SerializeField]
+    public float energy = 100;
+    [SerializeField]
+    public float EergyRegeneration = 150;
     private void Start()
     {
         
@@ -74,10 +78,6 @@ public class Hero : MonoBehaviour {
             Instantiate(visual);
             Instantiate(eventsystem);
         }
-        //pan1 = GameObject.FindGameObjectWithTag("pan1");
-        pan2 = GameObject.FindGameObjectWithTag("pan2");
-        p = pan2.GetComponent<BGpanel>();
-        pan = GetComponent<Image>();
     }
     private void Awake()
     {
@@ -98,16 +98,41 @@ public class Hero : MonoBehaviour {
         timersM -= Time.deltaTime;
         timerdam -= Time.deltaTime;
         grounded = isGround();
-        if (timerdam < 0) { damaget = false; win = false; } else { sp.color = new Color(255, sp.color.b + (255*Time.deltaTime)/ delay, sp.color.b + (255 * Time.deltaTime) / delay); }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && attacks < 3 && energy > 20)
+        {
+            attacks++;
+            Attack = true;
+            energy -= 20;
+        }
+        if (timerdam < 0)
+        {
+            damaget = false;
+            win = false;
+        }
+        else
+        {
+            sp.color = new Color(255, sp.color.b + (255*Time.deltaTime)/ delay, sp.color.b + (255 * Time.deltaTime) / delay);
+        }
+        #region SpeedMode
         if (!speedMode)shift = Input.GetKey(KeyCode.LeftShift);
-        if (Input.GetKeyDown(KeyCode.Tab) && timersM < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded && !damaget) { speedMode = !speedMode; timersM = 0.52f; win = true; shift = true; }
+        if (Input.GetKeyDown(KeyCode.Tab) && timersM < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded && !damaget)
+        {
+            speedMode = !speedMode;
+            timersM = 0.52f;
+            win = true;
+            shift = true;
+        }
         if (timersM < 0 && !damaget) win = false;
+        #endregion
+        #region Animator
         anim.SetFloat("Horizontal", Math.Abs(Input.GetAxis("Horizontal"))); 
         anim.SetBool("IsGrounded", grounded);
         anim.SetBool("speedMode", speedMode);
         anim.SetBool("Damaget", damaget);
         anim.SetFloat("Veloncity", rb.velocity.y);
         anim.SetBool("Shift", shift);
+        #endregion
+        #region Collider
         if (grounded && rb.velocity.y >= 0.1)
         {
             bc.offset.Set(-0.00943f, -0.2993f);
@@ -118,6 +143,7 @@ public class Hero : MonoBehaviour {
             bc.offset.Set((float)-0.009435f, (float)-0.1496f);
             bc.size.Set((float)0.32878f, (float)1.2992f);
         }
+        #endregion
         if (!win && !won)
         { 
             if (heart <= 0)
@@ -195,15 +221,20 @@ public class Hero : MonoBehaviour {
         if (!win && !won)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed +  (shift ? 70 : 0) ) * Time.deltaTime, rb.velocity.y);
+            if (energy < 100) { energy += 0.001f*EergyRegeneration; }
         }
     }
     void Jump()
     {
         rb.AddForce(transform.up * jumpForse, ForceMode2D.Impulse);
     }
+    public void HaveImpulse(float n, Vector2 dir)
+    {
+        rb.AddForce( dir * n, ForceMode2D.Impulse);
+    }
     private bool isGround()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(tr.position.x-0.0095f,tr.position.y-0.92f),new Vector2(0.431f,0.08f), 0.01f);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(tr.position.x - 0.0095f, tr.position.y - 0.92f), new Vector2(0.431f, 0.08f), 0.01f);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Solid")
@@ -212,9 +243,5 @@ public class Hero : MonoBehaviour {
             }
         }
         return false;
-    }
-    public void HaveImpulse(float n, Vector2 dir)
-    {
-        rb.AddForce( dir * n, ForceMode2D.Impulse);
     }
 }

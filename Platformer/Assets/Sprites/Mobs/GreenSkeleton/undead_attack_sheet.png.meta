@@ -129,18 +129,18 @@ TextureImporter:
       name: undead_attack_sheet_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 8
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5935731cdfd63443bdb6715a1871fd4
+      spriteID: fd70a96ff65424745b05561f121c2573
       vertices: []
       indices: 
       edges: []
@@ -149,18 +149,18 @@ TextureImporter:
       name: undead_attack_sheet_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 8
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 56
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29ea3a5666b085e4dbf4b0a4a1cf8089
+      spriteID: 305360be1cd85594e8e25b1c49228cdc
       vertices: []
       indices: 
       edges: []
@@ -169,18 +169,18 @@ TextureImporter:
       name: undead_attack_sheet_2
       rect:
         serializedVersion: 2
-        x: 122
-        y: 8
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 112
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ab6dac1a72d4542827382c0449e26b
+      spriteID: de2e9213b350dfa4bb60770068f85161
       vertices: []
       indices: 
       edges: []
@@ -189,18 +189,18 @@ TextureImporter:
       name: undead_attack_sheet_3
       rect:
         serializedVersion: 2
-        x: 178
-        y: 8
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 168
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1c54257468763146ad0cd644572edae
+      spriteID: 3787f091735b249488d57086c975413c
       vertices: []
       indices: 
       edges: []
@@ -209,18 +209,18 @@ TextureImporter:
       name: undead_attack_sheet_4
       rect:
         serializedVersion: 2
-        x: 229
-        y: 8
-        width: 30
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 224
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98d06d46a2744594db37f45330743564
+      spriteID: 2b7341d637e9af04b90803f9626966da
       vertices: []
       indices: 
       edges: []
@@ -229,18 +229,18 @@ TextureImporter:
       name: undead_attack_sheet_5
       rect:
         serializedVersion: 2
-        x: 285
-        y: 8
-        width: 30
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 280
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3abb2fe853916ce4a91ccb2e93d5cc9e
+      spriteID: d2204bb25fc6c3c40a1d70e2ee436ad6
       vertices: []
       indices: 
       edges: []
@@ -249,18 +249,18 @@ TextureImporter:
       name: undead_attack_sheet_6
       rect:
         serializedVersion: 2
-        x: 341
-        y: 8
-        width: 32
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 336
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5203fcef9d511e4a97e11bda0fc86e0
+      spriteID: 8a50d7570741cf54ab937cb87d47c461
       vertices: []
       indices: 
       edges: []
@@ -269,18 +269,18 @@ TextureImporter:
       name: undead_attack_sheet_7
       rect:
         serializedVersion: 2
-        x: 410
-        y: 5
-        width: 30
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 392
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 518dad8207ebd2f4f97cd324af804e24
+      spriteID: 42aef65fd8f58e2439ea0c7bb81b73aa
       vertices: []
       indices: 
       edges: []
@@ -289,18 +289,18 @@ TextureImporter:
       name: undead_attack_sheet_8
       rect:
         serializedVersion: 2
-        x: 468
-        y: 5
-        width: 28
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 448
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b2cde22a615a91449a74af09b2a6d30
+      spriteID: ff2fa3f86438ea4479fb46445883d109
       vertices: []
       indices: 
       edges: []
@@ -309,18 +309,18 @@ TextureImporter:
       name: undead_attack_sheet_9
       rect:
         serializedVersion: 2
-        x: 524
-        y: 6
-        width: 28
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 504
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ac894895d3cd04398e10cae8f1ad0b
+      spriteID: be7734ca982a0a84ba6a9704454cf054
       vertices: []
       indices: 
       edges: []
@@ -329,18 +329,18 @@ TextureImporter:
       name: undead_attack_sheet_10
       rect:
         serializedVersion: 2
-        x: 580
-        y: 6
-        width: 28
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 560
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53a9ff787ca31b14d9fd44445811e3d0
+      spriteID: c6773a9aea492e64a8a2c87bfab7a222
       vertices: []
       indices: 
       edges: []
@@ -349,18 +349,18 @@ TextureImporter:
       name: undead_attack_sheet_11
       rect:
         serializedVersion: 2
-        x: 636
-        y: 5
-        width: 26
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 616
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ba61e75f3f8e874f87e589cf33f20e7
+      spriteID: 77dbf25b37cbcb247a9af92d3301f52f
       vertices: []
       indices: 
       edges: []
@@ -369,18 +369,18 @@ TextureImporter:
       name: undead_attack_sheet_12
       rect:
         serializedVersion: 2
-        x: 692
-        y: 8
-        width: 23
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 672
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cadde8161c7744840a1131f076059ef1
+      spriteID: 45978a2174d4c3148aa0d7bba5748883
       vertices: []
       indices: 
       edges: []
@@ -389,18 +389,18 @@ TextureImporter:
       name: undead_attack_sheet_13
       rect:
         serializedVersion: 2
-        x: 748
-        y: 7
-        width: 25
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 728
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9683e9a10d737a845acfebf0031aa4b5
+      spriteID: 9b28349122787d24c8319a285b81bb8c
       vertices: []
       indices: 
       edges: []
@@ -409,18 +409,18 @@ TextureImporter:
       name: undead_attack_sheet_14
       rect:
         serializedVersion: 2
-        x: 804
-        y: 7
-        width: 29
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 784
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec8aec137e6987141b0a4c9ab2127e43
+      spriteID: 8423df92d55d54147a78ba8c21f75035
       vertices: []
       indices: 
       edges: []
@@ -429,18 +429,18 @@ TextureImporter:
       name: undead_attack_sheet_15
       rect:
         serializedVersion: 2
-        x: 860
-        y: 8
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 840
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c798e935ee629c5448ab2bbdd09c4814
+      spriteID: 0e0554a3fa4b6e34a863075f0da15c47
       vertices: []
       indices: 
       edges: []
@@ -449,18 +449,18 @@ TextureImporter:
       name: undead_attack_sheet_16
       rect:
         serializedVersion: 2
-        x: 915
-        y: 8
-        width: 20
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 896
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 351e0a19ff2da1f4c8a7a00eba08c630
+      spriteID: 32080b6fc672d5f45a3a2be23ed07c49
       vertices: []
       indices: 
       edges: []
@@ -469,18 +469,18 @@ TextureImporter:
       name: undead_attack_sheet_17
       rect:
         serializedVersion: 2
-        x: 960
-        y: 7
-        width: 28
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 952
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f959c37755b688148838ba9015d21793
+      spriteID: b989f64a7aecdb242bf7457403cefb6f
       vertices: []
       indices: 
       edges: []
@@ -489,18 +489,18 @@ TextureImporter:
       name: undead_attack_sheet_18
       rect:
         serializedVersion: 2
-        x: 1013
-        y: 7
-        width: 31
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1008
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a78dfdc533cf24fa99a047e9225544
+      spriteID: 674904842c133df43a5c7bbf0fe77cfb
       vertices: []
       indices: 
       edges: []
@@ -509,18 +509,18 @@ TextureImporter:
       name: undead_attack_sheet_19
       rect:
         serializedVersion: 2
-        x: 1070
-        y: 8
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1064
+        y: 0
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.428, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f6418478712e20489551bbdea3fc262
+      spriteID: ea437eef75711d04d96be96281a479f4
       vertices: []
       indices: 
       edges: []
