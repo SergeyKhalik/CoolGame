@@ -8,18 +8,19 @@ public class Horn : MonoBehaviour
     [SerializeField]
     private bool Easter_lvl;
     private SpriteRenderer sp;
-    private string fi = "Right";
+    private bool diractoin = true;
     [SerializeField]
     private float speed = 0.04f;
+    [SerializeField]
     private int damage = 20;
     [SerializeField]
-    private float yst1;
+    private float up;
     [SerializeField]
-    private float yst2;
+    private float down;
     [SerializeField]
-    private float x1;
+    private float left;
     [SerializeField]
-    private float x2;
+    private float right;
     private double a = 0;
     private float b;
     private double c = 1;
@@ -32,7 +33,6 @@ public class Horn : MonoBehaviour
     double w, q;
     System.Random rand = new System.Random();
     private Hero hero;
-    //Animator an;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "player")
@@ -67,22 +67,21 @@ public class Horn : MonoBehaviour
         }
         if (Easter_lvl)
         { damage = 100; }
-        A = Math.Abs(yst1 - yst2) / 2;
+        A = Math.Abs(up - down) / 2;
         Ast = A;
-        b = (yst1 + yst2) / 2;
+        b = (up + down) / 2;
     }
     private void Awake()
     {
         hero = GameObject.FindObjectOfType<Hero>();
         sp = GetComponent<SpriteRenderer>();
-        //an = GetComponent<Animator>();
     }
     void Update()
     {
         if (Time.timeScale != 0)
         {
             transform.position = new Vector3(transform.position.x, A * (float)Math.Sin(c * transform.position.x - a) + b, transform.position.z);
-            if (fi == "Right")
+            if (diractoin == true)
             {
                 transform.position += Vector3.right * speed;
                 sp.flipX = false;
@@ -92,9 +91,9 @@ public class Horn : MonoBehaviour
                 transform.position += Vector3.left * speed;
                 sp.flipX = true;
             }
-            if (fi == "Right")
+            if (diractoin == true)
             {
-                if (transform.position.x >= x2)
+                if (transform.position.x >= right)
                 {
                     c = rand.Next(5000, 20001) / 10000;
                     while (transform.position.y > b + A || transform.position.y < b - A)
@@ -104,12 +103,12 @@ public class Horn : MonoBehaviour
                         A = rand.Next(Convert.ToInt32(w), Convert.ToInt32(q) + 1);
                     }
                     a = c * transform.position.x - Math.Asin((transform.position.y - b) / A);
-                    fi = "Left";
+                    diractoin = false;
                 }
             }
             else
             {
-                if (transform.position.x <= x1)
+                if (transform.position.x <= left)
                 {
                     c = rand.Next(5000, 20001) / 10000;
                     while (transform.position.y > b + A || transform.position.y < b - A)
@@ -119,7 +118,7 @@ public class Horn : MonoBehaviour
                         A = rand.Next(Convert.ToInt32(w), Convert.ToInt32(q) + 1);
                     }
                     a = c * transform.position.x - Math.Asin((transform.position.y - b) / A);
-                    fi = "Right";
+                    diractoin = true;
                 }
             }
         }

@@ -11,8 +11,10 @@ public class Hero : MonoBehaviour {
     public static bool win = false;
     public static bool won = false;
     public static int damtaken = 0;
+    [Header("Сила прыжка персонажа")]
     [SerializeField]
     public float jumpForse = 30.0f;
+    [Header("Количество прыжков")]
     [SerializeField]
     public int jumps = 0;
     public static int coins = 0;
@@ -98,7 +100,7 @@ public class Hero : MonoBehaviour {
         timersM -= Time.deltaTime;
         timerdam -= Time.deltaTime;
         grounded = isGround();
-        if (Input.GetKeyDown(KeyCode.Mouse0) && attacks < 3 && energy > 20)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && attacks < 3 && energy > 20 && timersM < 0)
         {
             attacks++;
             Attack = true;
