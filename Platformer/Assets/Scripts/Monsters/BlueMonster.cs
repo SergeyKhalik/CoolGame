@@ -98,7 +98,7 @@ public class BlueMonster : MonoBehaviour {
         }
         if (collision.gameObject.tag == "player")
         {
-            hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1,1): new Vector2(1, 1)) );
+            //hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1,1): new Vector2(1, 1)) );
         }
     }
     private void OnCollisionStay2D(Collision2D collision)

@@ -43,7 +43,7 @@ public class Slime : MonoBehaviour {
         if (fight && timet <= 0.17 && !hd)
         {
             hd = true;
-            hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1, 1) : new Vector2(1, 1)));
+            //hero.HaveDamage(damage, (transform.position.x > hero.transform.position.x ? new Vector2(-1, 1) : new Vector2(1, 1)));
         }
         if (timet <= 0)
         {

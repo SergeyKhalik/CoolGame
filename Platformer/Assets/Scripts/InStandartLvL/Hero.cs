@@ -47,24 +47,28 @@ public class Hero : MonoBehaviour {
     private float timersM = 0;
     private float timerdam = 0;
     private bool shift = false;
-    private bool fight = false;
-    private int fightcounter = 0;
-    private bool damaget = false;
     [SerializeField]
     private float delay = 0.7f;
     [SerializeField]
-    private float DamImulse = 10;
-    [SerializeField]
     private int attacks = 0;
-    [SerializeField]
-    private bool Attack = false;
     [SerializeField]
     public float energy = 100;
     [SerializeField]
     public float EergyRegeneration = 150;
+    [SerializeField]
+    private bool move = true;
+    [SerializeField]
+    private bool attack = false;
+    [SerializeField]
+    private bool damageget = false;
+    [SerializeField]
+    private bool death = false;
+    [SerializeField]
+    private bool dhd = false;
     private void Start()
     {
-        
+        heart = 100;
+        win = false;won = false;dhd = false;
         Time.timeScale = 1;
         win = false;
         damtaken = 0;
@@ -97,108 +101,129 @@ public class Hero : MonoBehaviour {
     }
     private void Update()
     {
-        timersM -= Time.deltaTime;
-        timerdam -= Time.deltaTime;
-        grounded = isGround();
-        if (Input.GetKeyDown(KeyCode.Mouse0) && attacks < 3 && energy > 20 && timersM < 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameObject.FindGameObjectWithTag("Pause"))
         {
-            attacks++;
-            Attack = true;
-            energy -= 20;
+            Time.timeScale = 0;
+            Canvas ca = FindObjectOfType<Canvas>();
+            Instantiate(hug, ca.transform);
+            Instantiate(set, ca.transform);
         }
-        if (timerdam < 0)
+        else if (Input.GetKeyDown(KeyCode.Escape) && GameObject.FindGameObjectWithTag("Pause"))
         {
-            damaget = false;
-            win = false;
+            Time.timeScale = 1;
+            Destroy(GameObject.FindGameObjectWithTag("Pause"));
+            Destroy(GameObject.FindGameObjectWithTag("hug"));
         }
-        else
+        if (Time.timeScale != 0)
         {
-            sp.color = new Color(255, sp.color.b + (255*Time.deltaTime)/ delay, sp.color.b + (255 * Time.deltaTime) / delay);
-        }
-        #region SpeedMode
-        if (!speedMode)shift = Input.GetKey(KeyCode.LeftShift);
-        if (Input.GetKeyDown(KeyCode.Tab) && timersM < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded && !damaget)
-        {
-            speedMode = !speedMode;
-            timersM = 0.52f;
-            win = true;
-            shift = true;
-        }
-        if (timersM < 0 && !damaget) win = false;
-        #endregion
-        #region Animator
-        anim.SetFloat("Horizontal", Math.Abs(Input.GetAxis("Horizontal"))); 
-        anim.SetBool("IsGrounded", grounded);
-        anim.SetBool("speedMode", speedMode);
-        anim.SetBool("Damaget", damaget);
-        anim.SetFloat("Veloncity", rb.velocity.y);
-        anim.SetBool("Shift", shift);
-        #endregion
-        #region Collider
-        if (grounded && rb.velocity.y >= 0.1)
-        {
-            bc.offset.Set(-0.00943f, -0.2993f);
-            bc.size.Set(0.3287f, 0.9996f);
-        }
-        else
-        {
-            bc.offset.Set((float)-0.009435f, (float)-0.1496f);
-            bc.size.Set((float)0.32878f, (float)1.2992f);
-        }
-        #endregion
-        if (!win && !won)
-        { 
-            if (heart <= 0)
+            timersM -= Time.deltaTime;
+            timerdam -= Time.deltaTime;
+            grounded = isGround();
+            #region Animator
+            anim.SetFloat("Horizontal", Math.Abs(Input.GetAxis("Horizontal")));
+            anim.SetBool("IsGrounded", grounded);
+            anim.SetBool("speedMode", speedMode);
+            anim.SetBool("Damaget", damageget);
+            anim.SetFloat("Veloncity", rb.velocity.y);
+            anim.SetBool("Shift", shift);
+            #endregion
+            if (timerdam < 0) { win = false; damageget = false; move = true; }
+            if (timersM < 0) win = false;
+            if (heart <= 0) { move = false; attack = false; damageget = false; death = true;won = true; }
+            if (!won && !win)
             {
-                Global.deads++;
-                heart = 100;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                heart = 100;
-            }
-            if (Input.GetKeyDown(KeyCode.Escape) && !GameObject.FindGameObjectWithTag("Pause"))
-            {
-                Time.timeScale = 0;
-                Canvas ca = FindObjectOfType<Canvas>();
-                Instantiate(hug,ca.transform);
-                Instantiate(set, ca.transform);
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape) && GameObject.FindGameObjectWithTag("Pause"))
-            {
-                Time.timeScale = 1;
-                Destroy(GameObject.FindGameObjectWithTag("Pause"));
-                Destroy(GameObject.FindGameObjectWithTag("hug"));
-            }
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (grounded == false)
+                #region Collider
+                if (grounded && rb.velocity.y >= 0.1)
                 {
-                    if (jumps < 2)
-                    {
-                        Jump();
-                        jumps++;
-                    }
+                    bc.offset.Set(-0.00943f, -0.2993f);
+                    bc.size.Set(0.3287f, 0.9996f);
                 }
                 else
                 {
-                    jumps = 0;
-                    Jump();
-                    jumps++;
+                    bc.offset.Set((float)-0.009435f, (float)-0.1496f);
+                    bc.size.Set((float)0.32878f, (float)1.2992f);
                 }
+                #endregion
+                #region SpeedMode
+                if (!speedMode) shift = Input.GetKey(KeyCode.LeftShift);
+                if (Input.GetKeyDown(KeyCode.Tab) && timersM < 0 && Math.Abs(Input.GetAxis("Horizontal")) < 0.01 && grounded && move)
+                {
+                    speedMode = !speedMode;
+                    timersM = 0.52f;
+                    win = true;
+                    shift = true;
+                }
+                #endregion
+                if (move)
+                {
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        if (grounded == false)
+                        {
+                            if (jumps < 2)
+                            {
+                                Jump();
+                                jumps++;
+                            }
+                        }
+                        else
+                        {
+                            jumps = 0;
+                            Jump();
+                            jumps++;
+                        }
+                    }
+                    if (Input.GetAxis("Horizontal") < 0)
+                    {
+                        sp.flipX = true;
+                    }
+                    else if (Input.GetAxis("Horizontal") != 0)
+                    {
+                        sp.flipX = false;
+                    }
+                }
+                else if (attack)
+                {
+
+                }
+                else if (damageget)
+                {
+                    won = true;
+                    timerdam = 1f;
+                }
+                /*
+                if (!win)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && attacks < 3 && energy > 20 && timersM < 0)
+                    {
+                        attacks++;
+                        Attack = true;
+                        energy -= 20;
+                    }
+                    if (timerdam < 0)
+                    {
+                        damaget = false;
+                        win = false;
+                    }
+                    else
+                    {
+                        sp.color = new Color(255, sp.color.b + (255 * Time.deltaTime) / delay, sp.color.b + (255 * Time.deltaTime) / delay);
+                    }
+                }
+                */
             }
-            if (Input.GetAxis("Horizontal") < 0)
+            if (death)
             {
-                sp.flipX = true;
+                Global.deads++;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            else if(Input.GetAxis("Horizontal") != 0)
-            {
-                sp.flipX = false;
-            }  
         }
     }
-    public void HaveDamage(int dam, Vector2 dir)
+    public void HaveDamage(int dam, Vector2 dir, float imp)
     {
-        if (!won)
-        { 
+        if (!won && Time.timeScale != 0 && !dhd)
+        {
+            #region Fix health
             if (fields <= 0)
             {
                 heart -= dam;
@@ -208,23 +233,20 @@ public class Hero : MonoBehaviour {
             {
                 fields--;
             }
-            Debug.Log(sp.color);
-            sp.color = new Color(255, 0, 0);
-            Debug.Log(sp.color);
-            damaget = true;
-            timerdam = delay;
-            sp.color = new Color(255,0,0);
+            #endregion
             win = true;
-            HaveImpulse(DamImulse, dir);
+            damageget = true; move = false; attack = false; death = false;
+            if (timersM > 0) { timersM = -1; speedMode = false;  }
+            HaveImpulse(imp, dir);
         }
     }
     void FixedUpdate()
     {
         if (!win && !won)
         {
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed +  (shift ? 70 : 0) ) * Time.deltaTime, rb.velocity.y);
-            if (energy < 100) { energy += 0.001f*EergyRegeneration; }
+            if(move)rb.velocity = new Vector2(Input.GetAxis("Horizontal") * (speed +  (shift ? 70 : 0) ) * Time.deltaTime, rb.velocity.y);
         }
+        if (energy < 100) { energy += 0.001f * EergyRegeneration; }
     }
     void Jump()
     {
@@ -232,7 +254,7 @@ public class Hero : MonoBehaviour {
     }
     public void HaveImpulse(float n, Vector2 dir)
     {
-        rb.AddForce( dir * n, ForceMode2D.Impulse);
+        rb.AddForce(dir * n, ForceMode2D.Impulse);
     }
     private bool isGround()
     {

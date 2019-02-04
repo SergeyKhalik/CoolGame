@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spikes : MonoBehaviour {
-    public enum Component { Up, Down, Left, Right };
-    public Component component;
+    public enum Diraction { Up, Down, Left, Right };
+    public Diraction diraction;
     private Vector2 Imp;
     private Hero hero;
     [SerializeField]
@@ -25,18 +25,18 @@ public class Spikes : MonoBehaviour {
     private void Start()
     {
         hero = FindObjectOfType<Hero>();
-        switch (component)
+        switch (diraction)
         {
-            case Component.Up:
+            case Diraction.Up:
                 Imp = Vector2.up;
                 break;
-            case Component.Down:
+            case Diraction.Down:
                 Imp = Vector2.down;
                 break;
-            case Component.Left:
+            case Diraction.Left:
                 Imp = Vector2.left;
                 break;
-            case Component.Right:
+            case Diraction.Right:
                 Imp = Vector2.right;
                 break;
         }
@@ -62,18 +62,18 @@ public class Spikes : MonoBehaviour {
     {
         if (collision.gameObject.tag == "player")
         {
-            switch (component)
+            switch (diraction)
             {
-                case Component.Up:
+                case Diraction.Up:
                     Hero.rb.velocity = new Vector2(Hero.rb.velocity.x,0);
                     break;
-                case Component.Down:
+                case Diraction.Down:
                     Hero.rb.velocity = new Vector2(Hero.rb.velocity.x, 0);
                     break;
-                case Component.Left:
+                case Diraction.Left:
                     Hero.rb.velocity = new Vector2(0, Hero.rb.velocity.y);
                     break;
-                case Component.Right:
+                case Diraction.Right:
                     Hero.rb.velocity = new Vector2(0, Hero.rb.velocity.y);
                     break;
             }

@@ -12,31 +12,26 @@ public class Undead : MonoBehaviour {
     private Transform tr;
     private SpriteRenderer sp;
     private Animator an;
-    [SerializeField]
     private bool diraction = true;
-    [SerializeField]
     private bool Idle = true;
-    [SerializeField]
     private bool walk = false;
-    [SerializeField]
     private bool attack = false;
-    [SerializeField]
     private bool damaget = false;
-    [SerializeField]
     private bool death = false;
-    [SerializeField]
     private float attacktime = 0;
     [SerializeField]
+    private float ImpulseToHero = 250;
     private bool attached = false;
-    [SerializeField]
     private bool takedamage = false;
     [SerializeField]
-    private float Damage = 50;
+    private int Damage = 50;
+    private Hero hero;
     private void Awake()
     {
         tr = GetComponent<Transform>();
         sp = GetComponent<SpriteRenderer>();
         an = GetComponent<Animator>();
+        hero = FindObjectOfType<Hero>();
     }
     private void Start()
     {
@@ -86,7 +81,7 @@ public class Undead : MonoBehaviour {
                     if (attacktime < 0.6f && !takedamage)
                     {
                         takedamage = true;
-                        if (CheckHero()) Hero.heart -= Damage;
+                        if (CheckHero()) hero.HaveDamage(Damage,diraction ? new Vector2(1, 1) : new Vector2(-1, 1), ImpulseToHero);
                     }
                 }
                 else
